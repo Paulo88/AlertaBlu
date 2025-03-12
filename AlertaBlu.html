@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlertaBlu - Monitoramento Blumenau</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .top-bar {
+            background-color: #004ba0;
+            color: white;
+            padding: 0.5rem;
+            text-align: center;
+        }
+
+        header {
+            background-color: #1976d2;
+            padding: 1rem;
+            color: white;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .header-right {
+            text-align: right;
+        }
+
+        .current-time {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 4px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .info-card h2 {
+            color: #1976d2;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .data-table th {
+            background-color: #f5f5f5;
+            font-weight: bold;
+            color: #1976d2;
+        }
+
+        .status-normal {
+            color: #4caf50;
+            font-weight: bold;
+        }
+
+        .level-info {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .level-info span {
+            font-weight: bold;
+        }
+
+        .weather-icon {
+            font-size: 2rem;
+            margin-right: 1rem;
+        }
+
+        .alert-box {
+            background-color: #4caf50;
+            color: white;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .alert-box.warning {
+            background-color: #ff9800;
+        }
+
+        .alert-box.danger {
+            background-color: #f44336;
+        }
+
+        footer {
+            background-color: #1976d2;
+            color: white;
+            padding: 2rem 1rem;
+            margin-top: 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .header-right {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        Sistema de Monitoramento e Alerta de Eventos Extremos de Blumenau
+    </div>
+    
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="logo.png" alt="AlertaBlu Logo">
+            </div>
+            <div class="header-right">
+                <div class="current-time">Última atualização: 11/02/2025 15:30</div>
+                <div>Prefeitura Municipal de Blumenau</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="alert-box">
+            Sem alertas no momento. Situação normal em toda a cidade.
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h2>Nível do Rio Itajaí-Açu</h2>
+                <div class="level-info">
+                    <div>Nível Atual:</div>
+                    <span>3.25 metros</span>
+                </div>
+                <div class="level-info">
+                    <div>Nível de Alerta:</div>
+                    <span>8.50 metros</span>
+                </div>
+                <div class="level-info">
+                    <div>Status:</div>
+                    <span class="status-normal">Normal</span>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h2>Condições Meteorológicas</h2>
+                <div class="level-info">
+                    <div>Temperatura:</div>
+                    <span>24.5°C</span>
+                </div>
+                <div class="level-info">
+                    <div>Umidade:</div>
+                    <span>78%</span>
+                </div>
+                <div class="level-info">
+                    <div>Precipitação (24h):</div>
+                    <span>0.0 mm</span>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h2>Previsão do Tempo</h2>
+                <div class="level-info">
+                    <div>Próximas 24h:</div>
+                    <span>Parcialmente nublado</span>
+                </div>
+                <div class="level-info">
+                    <div>Probabilidade de Chuva:</div>
+                    <span>20%</span>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    <!-- Bloco de Qualidade do Ar -->
+    <div class="info-card">
+        <h2>Qualidade do Ar</h2>
+        <div class="level-info">
+            <div>Índice de Qualidade do Ar:</div>
+            <span>45 (Bom)</span>
+        </div>
+        <div class="level-info">
+            <div>Partículas PM2.5:</div>
+            <span>12 µg/m³</span>
+        </div>
+        <div class="level-info">
+            <div>Partículas PM10:</div>
+            <span>25 µg/m³</span>
+        </div>
+    </div>
+    
+    <!-- Bloco de Histórico de Níveis do Rio -->
+    <div class="info-card">
+        <h2>Histórico de Níveis do Rio</h2>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Horário</th>
+                    <th>Nível</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>12:00</td>
+                    <td>3.20m</td>
+                </tr>
+                <tr>
+                    <td>13:00</td>
+                    <td>3.22m</td>
+                </tr>
+                <tr>
+                    <td>14:00</td>
+                    <td>3.23m</td>
+                </tr>
+                <tr>
+                    <td>15:00</td>
+                    <td>3.25m</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+        <div class="info-card">
+            <h2>Estações de Monitoramento</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Estação</th>
+                        <th>Nível</th>
+                        <th>Variação 1h</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Garcia</td>
+                        <td>1.20m</td>
+                        <td>0.00m</td>
+                        <td class="status-normal">Normal</td>
+                    </tr>
+                    <tr>
+                        <td>Fortaleza</td>
+                        <td>2.15m</td>
+                        <td>-0.01m</td>
+                        <td class="status-normal">Normal</td>
+                    </tr>
+                    <tr>
+                        <td>Velha</td>
+                        <td>1.85m</td>
+                        <td>0.00m</td>
+                        <td class="status-normal">Normal</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>Contato</h3>
+                <p>Defesa Civil de Blumenau</p>
+                <p>Tel: 199</p>
+            </div>
+            <div>
+                <h3>Endereço</h3>
+                <p>Rua Dois de Setembro, 1234</p>
+                <p>Centro - Blumenau/SC</p>
+            </div>
+            <div>
+                <h3>Links Úteis</h3>
+                <p>Defesa Civil SC</p>
+                <p>Previsão do Tempo</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

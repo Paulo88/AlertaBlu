@@ -161,6 +161,37 @@
                 text-align: center;
             }
         }
+
+	            .back-btn {
+            position: absolute;
+            top: 50%;
+            left: 2rem;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .back-btn:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        } 
+
+
+        @media (max-width: 768px) {
+            .back-btn {
+                top: 1.5rem;
+                left: 1.5rem;
+                transform: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -178,6 +209,12 @@
                 <div>Prefeitura Municipal de Blumenau</div>
             </div>
         </div>
+	           <a href="portfolio-frontend.html" class="back-btn" aria-label="Voltar">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+        </a>
     </header>
 
     <main class="container">
@@ -231,9 +268,6 @@
             </div>
         </div>
 
-
-
-
     <!-- Bloco de Qualidade do Ar -->
     <div class="info-card">
         <h2>Qualidade do Ar</h2>
@@ -282,18 +316,6 @@
         </table>
     </div>
 	
-	
-	
-	
-	
-	
-
-
-
-
-
-
-
         <div class="info-card">
             <h2>Estações de Monitoramento</h2>
             <table class="data-table">
